@@ -71,7 +71,34 @@ const userSchema = new mongoose.Schema(
     },
     refreshToken:{
         type:String,
+    },
+    sAddress:{
+      type:String,
+      required: [true, 'Address is required'],
+      minlength:[5, 'Address should be atleast 5 characters long'],
+      maxlength:[300,'Address should be less than 300 characters']
+    },
+    sCity:{
+      type: String,
+      required:[true, 'Enter the city'],
+      //enum:[]// list of the cities you want.
+    },
+    sState:{
+      type:String,
+      required:[true,'Enter the state'],
+      //enum:[] list of the state
+    },
+    sCountry:{
+      type:String,
+      required:[true,'Enter the country'],
+      //enum: [] list of all the countries.
+    },
+    sPostalCode:{
+      type:String,
+      required:[true,'Enter the Postal Code of the address where you live'],
+      trim: true
     }
+
   },
   { timestamps: true }
 );
